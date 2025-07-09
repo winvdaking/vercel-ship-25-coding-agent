@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config({ path: ".env.local" });
 
 codingAgent(
-  "Add a contributing section to the readme of this project. Use standard format.",
+  "translate this readme for me by adding a second part in French please.",
 )
   .then(console.log)
   .catch(console.error);

@@ -61,3 +61,66 @@ Parameters:
 
 - `prompt` - What you want the agent to do
 - `repoUrl` - GitHub repository URL
+
+## Partie française
+
+### À propos du projet
+
+Projet de démarrage pour Vercel Ship "Construire des agents avec l'AI SDK". Cet agent de codage est construit avec AI SDK 5, Vercel AI Gateway, et Vercel Sandbox. Il peut lire et modifier des dépôts GitHub.
+
+### Configuration
+
+1. Installez Vercel CLI : `npm i -g vercel`
+1. Déployez ce dépôt avec le bouton ci-dessus.
+1. Clonez le nouveau dépôt localement.
+1. Liez au projet Vercel : `vercel link`
+1. Récupérez les variables d'environnement : `vercel env pull` (peut nécessiter aussi les IDs de l'équipe/projet)
+1. Installez les dépendances : `pnpm install`
+1. Lancez le serveur de développement : `vercel dev`
+
+### Variables d'environnement
+
+- `VERCEL_OIDC_TOKEN` - Pour AI Gateway et Sandbox (sera ajouté automatiquement lors de l'exécution de `vercel dev`)
+- `GITHUB_TOKEN` - Jeton d'accès personnel GitHub
+
+### Jeton d'accès personnel GitHub
+
+Pour créer un jeton d'accès personnel GitHub (PAT) :
+
+1. Allez sur https://github.com/settings/personal-access-tokens
+2. Cliquez sur "Generate new token"
+3. Donnez un nom descriptif
+4. Donnez accès à tous les dépôts
+5. Ajoutez les permissions suivantes :
+   - Issues : lecture et écriture
+   - Pull requests : lecture et écriture
+6. Cliquez sur "Generate token"
+7. Copiez le jeton immédiatement (vous ne pourrez plus le voir)
+8. Ajoutez-le à votre fichier `.env.local` sous la clé `GITHUB_TOKEN`
+
+### Contribution
+
+Les contributions sont les bienvenues ! Pour contribuer à ce projet, veuillez suivre ces étapes :
+
+1. Forkez le dépôt.
+2. Créez votre branche de fonctionnalité (`git checkout -b feature/votre-fonctionnalite`).
+3. Commitez vos changements (`git commit -m 'Ajout d'une fonctionnalité'`).
+4. Poussez la branche (`git push origin feature/votre-fonctionnalite`).
+5. Ouvrez une pull request décrivant vos changements.
+
+Veuillez vous assurer que votre code suit le style du projet et comprend des tests appropriés.
+
+
+```bash
+curl -X POST https://your-deployment.vercel.app/api/agent \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": "update readme to say hey were so back",
+    "repoUrl": "https://github.com/nicoalbanese/ai-sdk-langgraph/"
+  }'
+```
+
+Parameters:
+
+- `prompt` - What you want the agent to do
+- `repoUrl` - GitHub repository URL
